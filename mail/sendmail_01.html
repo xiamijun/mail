@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>在线邮件系统</title>
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        function send(){
+            if (document.myForm.from_name.value.length==0){
+                alert('发件人不能为空');
+            }
+            else if(document.myForm.from_email.value.length==0){
+                alert('发件人邮箱不能为空');
+            }
+            else if(document.myForm.to_name.value.length==0){
+                alert('收件人不能为空');
+            }
+            else if(document.myForm.to_email.value.length==0){
+                alert('收件人邮箱不能为空');
+            }
+            else if(document.myForm.subject.value.length==0){
+                alert('主题字段不能为空');
+            }
+            else if(document.myForm.message.value.length==0){
+                alert('内容不能为空');
+            }
+            else
+                document.myForm.submit();
+        }
+    </script>
+</head>
+<body>
+<div class="container">
+    <h1>在线邮件系统</h1>
+    <form action="send_01.php" method="post" name="myForm">
+        <div class="col-md-2">
+            <label for="from_name" class="label label-warning">发件人：</label>
+        </div>
+        <div class="col-md-10">
+            <input type="text" name="from_name" id="from_name" class="form-control" placeholder="发件人">
+        </div>
+        <div class="col-md-2">
+            <label for="from_email" class="label label-warning">发件人电子邮箱：</label>
+        </div>
+        <div class="col-md-10">
+            <input type="text" name="from_email" id="from_email" class="form-control" placeholder="发件人电子邮箱">
+        </div>
+        <div class="col-md-2">
+            <label for="to_name" class="label label-warning">收件人：</label>
+        </div>
+        <div class="col-md-10">
+            <input type="text" name="to_name" id="to_name" class="form-control" placeholder="收件人">
+        </div>
+        <div class="col-md-2">
+            <label for="to_email" class="label label-warning">收件人电子邮箱：</label>
+        </div>
+        <div class="col-md-10">
+            <input type="text" name="to_email" id="to_email" class="form-control" placeholder="收件人电子邮箱">
+        </div>
+        <div class="col-md-2">
+            <label class="label label-warning">邮件格式：</label>
+        </div>
+        <div class="col-md-10">
+            <div class="radio">
+                <input type="radio" name="format" value="html" checked>HTML
+            </div>
+            <div class="radio">
+                <input type="radio" name="format" value="plain">纯文本
+            </div>
+        </div>
+        <div class="col-md-2">
+            <label for="subject" class="label label-warning">邮件主题：</label>
+        </div>
+        <div class="col-md-10">
+            <input type="text" name="subject" id="subject" class="form-control">
+        </div>
+        <div class="col-md-2">
+            <label class="label label-warning">邮件内容：</label>
+        </div>
+        <div class="col-md-10">
+            <textarea name="message" id="" cols="62" rows="5" class="form-control"></textarea>
+        </div>
+        <p align="center">
+            <input type="button" class="btn btn-primary" value="发送邮件" onclick="send()">
+        </p>
+
+    </form>
+
+
+</div>
+</body>
+</html>
